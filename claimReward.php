@@ -144,7 +144,7 @@
                 // Display data
                 while ($row = $result->fetch_assoc()) {
                 ?>
-                    <p class="txt">Recycler ID Number:</p>
+                    <p class="txt">Recycler ID Number (HEX value):</p>
                     <input type="text" class="textBoxdiv" name="idnumber" id="idnum" value="<?php echo $row['idnumber']; ?>"
                            readonly>
                     <p class="txt">Number of plastic bottles collected:</p>
@@ -186,8 +186,8 @@
 
                         function claimReward() {
                             let rewardPts = parseFloat(pts.value);
-                            if (rewardPts < 5) {
-                                alert("You cannot claim rewards yet as your collected plastic bottles and cans are too little. Collect more bottles and cans to claim reward!");
+                            if (rewardPts < 1) {
+                                alert("You cannot claim rewards yet as your collected plastic bottles and cans count is zero. Collect more bottles and cans to claim reward!");
                             } else {
                                 let uniqueIdentifier = generateUniqueIdentifier(); // Generate unique identifier
                                 updateDatabase(uniqueIdentifier); // Update the database with the unique identifier
